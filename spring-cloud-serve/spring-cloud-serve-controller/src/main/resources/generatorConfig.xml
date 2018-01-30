@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	<classPathEntry
+		location="D:\mvnhome\mysql\mysql-connector-java\5.1.34\mysql-connector-java-5.1.34.jar" />
+	<context id="MySqlTables" targetRuntime="MyBatis3">
+		<plugin type="com.timepack.serve.utils.PaginationPlugin" />
+		 <commentGenerator type="com.timepack.serve.utils.MyCommentGenerator">
+			<property name="javaFileEncoding" value="UTF-8"/>
+            <property name="suppressAllComments" value="false"/><!-- 是否取消注释 -->  
+            <property name="suppressDate" value="true" /> <!-- 是否生成注释代时间戳--> 
+            <property name="useActualColumnNames" value="true" /> 
+        </commentGenerator>
+		<!--配置数据库链接 -->
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://127.0.0.1:3306/dt?characterEncoding=utf8"
+			userId="root" password="123456">
+			<!-- 针对oracle数据库 -->
+<!-- 			<property name="remarksReporting" value="true"></property> -->
+			<!-- 针对mysql数据库 -->
+			<property name="useInformationSchema" value="true"></property>
+		</jdbcConnection>
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+		<!--配置实体bean -->
+		<javaModelGenerator targetPackage="com.beumu.model"
+			targetProject="timepack-serve/timepack-serve-entity/src/main/java">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+
+		<!--配置实体map接口（dao） -->
+		<sqlMapGenerator targetPackage="com.beumu.mapper"
+			targetProject="timepack-serve/timepack-serve-mapper/src/main/java">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+
+		<!--配置实体bean的sql.xml -->
+		<javaClientGenerator type="XMLMAPPER"
+			targetPackage="com.beumu.dao" targetProject="timepack-serve/timepack-serve-mapper/src/main/java">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+
+		<!--配置实体bean -->
+		<!-- <javaModelGenerator targetPackage="cn.timepack.model.recharge" targetProject="E:\code"> 
+			<property name="enableSubPackages" value="true" /> <property name="trimStrings" 
+			value="true" /> </javaModelGenerator> -->
+
+		<!--配置实体map接口（dao） -->
+		<!-- <sqlMapGenerator targetPackage="cn.timepack.mapper.recharge" targetProject="E:\code"> 
+			<property name="enableSubPackages" value="true" /> </sqlMapGenerator> -->
+
+		<!--配置实体bean的sql.xml -->
+		<!-- <javaClientGenerator type="XMLMAPPER" targetPackage="cn.timepack.dao.recharge" 
+			targetProject="E:\code"> <property name="enableSubPackages" value="true" 
+			/> </javaClientGenerator> -->
+
+
+
+		<!--配置实体 -->
+		<table  tableName="user" domainObjectName="User"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false" >
+			 <property name="rootClass" value="com.beumu.BaseEntity" />  
+		</table>
+		
+	</context>
+</generatorConfiguration> 

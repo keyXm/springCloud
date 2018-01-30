@@ -1,0 +1,43 @@
+spring:
+  application:
+    name: wechat
+  datasource:
+        name: wechat
+        url: jdbc:mysql://192.168.0.104:3306/enjoy_print?useUnicode=true&characterEncoding=utf-8
+        username: root
+        password: timepack
+        driver-class-name: com.mysql.jdbc.Driver
+  freemarker:
+        checkTemplateLocation: false
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8080/eureka/  #注册中心地址
+  instance:
+    hostname: localhost
+    instance-id: http://${eureka.instance.hostname}:${server.port}
+#    leaseRenewalIntervalInSeconds: 1
+#    leaseExpirationDurationInSeconds: 2
+server:
+  port: 8082
+
+mybatis:
+  # mybatis.type-aliases-package：指定domain类的基包，即指定其在*Mapper.xml文件中可以使用简名来代替全类名（看后边的UserMapper.xml介绍）
+  type-aliases-package:
+  mapper-locations: classpath:mybatis/*.xml
+  config-location: clapssath:mybatis-config.xml
+#####################################################################################################
+# 打印日志
+logging:
+  level:
+    root: INFO
+    org.hibernate: INFO
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    org.hibernate.type.descriptor.sql.BasicExtractor: TRACE
+    com.springms: DEBUG
+#####################################################################################################
+log:
+    path: I:\\
+    name: wechat
+    level: info

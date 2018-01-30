@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<parent>
+		<artifactId>spring-cloud-core</artifactId>
+		<groupId>spring-cloud</groupId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>spring.cloud.serve</groupId>
+	<artifactId>spring-cloud-serve</artifactId>
+	<packaging>pom</packaging>
+	
+	<modules>
+		<module>spring-cloud-serve-entity</module>
+		<module>spring-cloud-serve-mapper</module>
+		<module>spring-cloud-serve-service</module>
+		<module>spring-cloud-serve-controller</module>
+		<module>spring-cloud-serve-wechat</module>
+	</modules>
+	<properties>
+		<commons-lang3.version>3.3.2</commons-lang3.version>
+	</properties>
+	<dependencies>
+		<!-- 访问数据库模块 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+
+		<!-- web模块 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<!-- MYSQL -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
+
+		<!-- Mybatis依赖 -->
+		<dependency>
+			<groupId>org.mybatis.spring.boot</groupId>
+			<artifactId>mybatis-spring-boot-starter</artifactId>
+			<version>1.3.1</version>
+		</dependency>
+	</dependencies>
+</project>
