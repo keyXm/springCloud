@@ -3,9 +3,9 @@ spring:
     name: wechat
   datasource:
         name: wechat
-        url: jdbc:mysql://192.168.0.104:3306/enjoy_print?useUnicode=true&characterEncoding=utf-8
+        url: jdbc:mysql://192.168.0.104:3306/dt?useUnicode=true&characterEncoding=utf-8
         username: root
-        password: timepack
+        password: 123456
         driver-class-name: com.mysql.jdbc.Driver
   freemarker:
         checkTemplateLocation: false
